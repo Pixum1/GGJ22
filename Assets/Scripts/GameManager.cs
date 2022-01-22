@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour {
     }
     private void Die(PlayerController _p) {
         Time.timeScale = 0f;
+        if (_p.gameObject == null)
+            return;
         if (_p.gameObject == p1.gameObject) {
             //player 2 wins
             Debug.Log("Player 2 wins");

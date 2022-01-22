@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour
     private float outerBounds, innerBounds;
     public float maxHeightBounds;
 
+    public bool moveInvertet;
+
     public Action<PlayerController> e_playerDies;
 
     private void Start() {
@@ -36,8 +38,16 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void Move() {
-        transform.position += new Vector3(moveDir * playerSpeed * Time.fixedDeltaTime, 0, 0);
+    private void Move()
+    {
+        if (moveInvertet)
+        {
+            transform.position -= new Vector3(moveDir * playerSpeed * Time.fixedDeltaTime, 0, 0);
+        }
+        else
+        {
+            transform.position += new Vector3(moveDir * playerSpeed * Time.fixedDeltaTime, 0, 0);
+        }
     }
     private void SetLevelBounds() {
         outerBounds = plane.bounds.min.x + transform.localScale.x / 2f;
@@ -58,6 +68,7 @@ public class PlayerController : MonoBehaviour
     }
 
     private void OnDestroy() {
+
         e_playerDies?.Invoke(this);
     }
 }
