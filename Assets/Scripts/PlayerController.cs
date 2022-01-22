@@ -17,12 +17,12 @@ public class PlayerController : MonoBehaviour
     private Collider plane;
 
     private float outerBounds, innerBounds;
+    public float maxHeightBounds;
 
     public Action<PlayerController> e_playerDies;
 
     private void Start() {
-        outerBounds = plane.bounds.min.x + transform.localScale.x / 2f;
-        innerBounds = plane.bounds.max.x - transform.localScale.x / 2f;
+        SetLevelBounds();
     }
 
     private void Update() {
@@ -39,6 +39,11 @@ public class PlayerController : MonoBehaviour
     private void Move() {
         transform.position += new Vector3(moveDir * playerSpeed * Time.fixedDeltaTime, 0, 0);
     }
+    private void SetLevelBounds() {
+        outerBounds = plane.bounds.min.x + transform.localScale.x / 2f;
+        innerBounds = plane.bounds.max.x - transform.localScale.x / 2f;
+        maxHeightBounds = plane.bounds.center.z + plane.bounds.extents.z / 2f;
+    }
 
     private void KeepPlayerInBounds() {
         if (transform.position.x <= outerBounds) {
@@ -46,6 +51,9 @@ public class PlayerController : MonoBehaviour
         }
         if (transform.position.x >= innerBounds) {
             transform.position = new Vector3(innerBounds, transform.position.y, transform.position.z);
+        }
+        if (transform.position.z >= maxHeightBounds) { 
+            transform.position = new Vector3(transform.position.x, transform.position.y, maxHeightBounds);
         }
     }
 
