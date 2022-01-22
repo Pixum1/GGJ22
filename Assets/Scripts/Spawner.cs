@@ -7,7 +7,6 @@ public class Spawner : MonoBehaviour
     [SerializeField]
     GameObject obstacle;
     Vector3 point;
-    [SerializeField]
     float laneWidth;
     [SerializeField]
     float spawnTime;
@@ -19,15 +18,18 @@ public class Spawner : MonoBehaviour
     private void Start()
     {
         StartCoroutine("Spawn");
+        laneWidth = transform.parent.lossyScale.x*10;
+        transform.localPosition = new Vector3(0,0,transform.parent.lossyScale.z);
     }
 
     IEnumerator Spawn()
     {
         yield return new WaitForSeconds(spawnTime);
         if (isActive)
-        {            
-            point = new Vector3(Random.Range(transform.position.x - laneWidth*0.5f, transform.position.x+ laneWidth * 0.5f), transform.position.y, transform.position.z);
-            GameObject clone = Instantiate(obstacle, point, Quaternion.identity);
+        {
+            float height=1;
+            point = new Vector3(Random.Range(transform.position.x - laneWidth*0.5f+obstacle.transform.lossyScale.x, transform.position.x+ laneWidth * 0.5f - obstacle.transform.lossyScale.x), transform.position.y, transform.position.z);
+            GameObject clone = Instantiate(obstacle, point+new Vector3(0,height*0.5f,0), Quaternion.identity);
             Rigidbody rb=clone.AddComponent<Rigidbody>();
             clone.GetComponent<Collider>().isTrigger = true;
             rb.useGravity = false;
