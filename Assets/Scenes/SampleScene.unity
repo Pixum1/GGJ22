@@ -1597,6 +1597,7 @@ MonoBehaviour:
   speed: 20
   isActive: 1
   slomo: 0
+  groundWave: {fileID: 2100000, guid: caa787eff2f9ac24fbe0c194cb49c19f, type: 2}
 --- !u!1 &1425758333
 GameObject:
   m_ObjectHideFlags: 0
@@ -1877,7 +1878,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: df74f5a67cc9c3c458d166f97b64339a, type: 2}
+  - {fileID: 2100000, guid: caa787eff2f9ac24fbe0c194cb49c19f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1974,7 +1975,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8d65179fc40685d41a03611c33395600, type: 2}
+  - {fileID: 2100000, guid: 27e6b9e1bcd5f274e9d30de0f0aa79a0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2078,6 +2079,7 @@ MonoBehaviour:
   speed: 20
   isActive: 1
   slomo: 0
+  groundWave: {fileID: 2100000, guid: 27e6b9e1bcd5f274e9d30de0f0aa79a0, type: 2}
 --- !u!1 &1870523310
 GameObject:
   m_ObjectHideFlags: 0

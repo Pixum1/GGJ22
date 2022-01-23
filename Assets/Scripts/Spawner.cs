@@ -18,12 +18,23 @@ public class Spawner : MonoBehaviour
     public bool slomo;
     float slomoVal;
 
+    [SerializeField]
+    private Material groundWave;
+
     private void Start()
     {
         slomo = false;
         StartCoroutine("Spawn");
         laneWidth = transform.parent.lossyScale.x*10;
         transform.localPosition = new Vector3(0,0,transform.parent.lossyScale.z);
+    }
+
+    private void ScrollGroundWave() {
+        groundWave.mainTextureOffset -= new Vector2(0, speed * slomoVal * .00025f);
+    }
+
+    private void Update() {
+        ScrollGroundWave();
     }
 
     IEnumerator Spawn()
@@ -57,6 +68,7 @@ public class Spawner : MonoBehaviour
                 clone.transform.localScale = new Vector3(Random.Range(4,9)/planeScale.x,1 / planeScale.y, 1 / planeScale.z);
             }
             Rigidbody rb=clone.AddComponent<Rigidbody>();
+            rb.interpolation = RigidbodyInterpolation.Interpolate;
             clone.GetComponent<Collider>().isTrigger = true;
             rb.useGravity = false;
             
