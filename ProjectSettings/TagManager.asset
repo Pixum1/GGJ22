@@ -6,6 +6,11 @@ TagManager:
   tags:
   - Obstacle
   - Obstacle2
+  - ObstaclePushBack
+  - ObstaclePullFwd
+  - PowerUpInvert
+  - PowerUpSloMo
+  - SloMo
   layers:
   - Default
   - TransparentFX
