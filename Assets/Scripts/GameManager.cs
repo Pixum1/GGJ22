@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour {
         p2.e_playerDies = new Action<PlayerController>(Die);
     }
     private void Die(PlayerController _p) {
-        Time.timeScale = 0f;
+        //Time.timeScale = 0f;
         if (_p.gameObject == null)
             return;
         if (_p.gameObject == p1.gameObject) {

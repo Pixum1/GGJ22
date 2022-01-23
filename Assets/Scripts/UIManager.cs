@@ -11,9 +11,12 @@ public class UIManager : MonoBehaviour
     private GameObject gameOverPanel;
     [SerializeField]
     private TMP_Text winText;
+    [SerializeField]
+    private Animator gameOverPanelAnimator;
 
     public void ShowGameOverPanel(string _winningPlayer) {
         gameOverPanel.SetActive(true);
+        gameOverPanelAnimator.SetTrigger("show");
         winText.text = $"{_winningPlayer} has won!!!";
     }
 

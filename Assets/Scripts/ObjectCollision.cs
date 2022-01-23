@@ -31,7 +31,8 @@ public class ObjectCollision : MonoBehaviour
             activePowerUpTag = other.tag;
         }
         hitPosZ = transform.position.z;
-        Destroy(other.gameObject);
+        if(!other.CompareTag("WallOfDeath"))
+            Destroy(other.gameObject);
     }
     private void Update()
     {

@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 62aa141279db35e4593807247a1d0bb7
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Timetwist
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: fb7e582382e92884b94e2c986e2ca600, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

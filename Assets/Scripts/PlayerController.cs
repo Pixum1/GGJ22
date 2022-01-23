@@ -23,6 +23,10 @@ public class PlayerController : MonoBehaviour
 
     public Action<PlayerController> e_playerDies;
 
+    [SerializeField]
+    private float afkTime = 2f;
+    private float afkTimer;
+
     private void Start() {
         SetLevelBounds();
     }
@@ -30,6 +34,12 @@ public class PlayerController : MonoBehaviour
     private void Update() {
         moveDir = Input.GetAxisRaw(playerInput);
         KeepPlayerInBounds();
+
+        if(afkTimer > afkTime) {
+            transform.position -= new Vector3(0, 0, 5 * Time.deltaTime);
+        }
+
+        afkTimer += Time.deltaTime;
     }
 
     private void FixedUpdate() {
@@ -48,6 +58,8 @@ public class PlayerController : MonoBehaviour
         {
             transform.position += new Vector3(moveDir * playerSpeed * Time.fixedDeltaTime, 0, 0);
         }
+
+        afkTimer = 0;
     }
     private void SetLevelBounds() {
         outerBounds = plane.bounds.min.x + transform.localScale.x / 2f;
