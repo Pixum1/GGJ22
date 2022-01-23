@@ -7,6 +7,15 @@ public class ParticleOnDestroy : MonoBehaviour
     [SerializeField]
     ParticleSystem pSys;
     Spawner spawn;
+    [SerializeField]
+    AudioSource audioSource;
+    [SerializeField]
+    AudioClip audioClip;
+
+    private void Start()
+    {
+        audioSource = GameObject.Find("Sound").GetComponent<AudioSource>();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -17,6 +26,7 @@ public class ParticleOnDestroy : MonoBehaviour
             pSys.GetComponent<ParticleSystemRenderer>().material = transform.GetComponent<MeshRenderer>().material;
             var main = pSys.main;
             Instantiate(pSys, transform.position, Quaternion.identity);
+            audioSource.PlayOneShot(audioClip);
             if (spawn.slomo)
             {                
                 main.simulationSpeed = 0.4f;

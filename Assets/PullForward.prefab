@@ -109,3 +109,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pSys: {fileID: 3481821875945165950, guid: 0e4f2bd6b14b02040be8004c90ade57f, type: 3}
+  audioSource: {fileID: 0}
+  audioClip: {fileID: 8300000, guid: a9e4b7a242f8cf246a9b68dccb4066d3, type: 3}
