@@ -9,7 +9,8 @@ TagManager:
   - ObstaclePushBack
   - ObstaclePullFwd
   - PowerUpInvert
-  - WallOfDeath
+  - PowerUpSloMo
+  - SloMo
   layers:
   - Default
   - TransparentFX

@@ -10,12 +10,20 @@ public class ObjectCollision : MonoBehaviour
     [SerializeField]
     float powerUpTimer;
     private PlayerController pCon;
+    [SerializeField]
+    private Spawner pSpawner;
+    [SerializeField]
+    private Spawner otherPSpawner;
     private PlayerController otherPCon;
     [SerializeField]
     GameObject otherPlayer;
+    bool slomoon;
+    float slomoTimer;
 
     private void Start()
     {
+        slomoon = false;
+        slomoTimer = 7;
         pCon = GetComponent<PlayerController>();
         otherPCon = otherPlayer.GetComponent<PlayerController>();
     }
@@ -29,6 +37,10 @@ public class ObjectCollision : MonoBehaviour
         }else if (other.tag.StartsWith("PowerUp"))
         {
             activePowerUpTag = other.tag;
+        }
+        else if (other.tag=="SloMo")
+        {
+            slomoon = true;
         }
         hitPosZ = transform.position.z;
         if(!other.CompareTag("WallOfDeath"))
@@ -45,7 +57,12 @@ public class ObjectCollision : MonoBehaviour
         }
         else
         {
-            powerUpTimer = 5f;
+            powerUpTimer = 7f;
+        }
+
+        if (slomoon)
+        {
+            SloMo();
         }
     }
     void ObstaclePushBack()
@@ -85,6 +102,19 @@ public class ObjectCollision : MonoBehaviour
         {
             otherPCon.moveInvertet = false;
             activePowerUpTag = null;
+        }
+    }
+
+    void SloMo()
+    {
+        pSpawner.slomo = true;
+        slomoTimer -= Time.deltaTime;
+
+        if (slomoTimer <= 0)
+        {
+            pSpawner.slomo = false;
+            slomoTimer = 7;
+            slomoon = false;
         }
     }
 }

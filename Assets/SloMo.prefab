@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 971417645447417390}
   - component: {fileID: 6587452035907948799}
   - component: {fileID: 6575555184454399009}
-  - component: {fileID: -6083663876335167546}
+  - component: {fileID: -3047407088706654928}
   m_Layer: 0
-  m_Name: Invert
-  m_TagString: PowerUpInvert
+  m_Name: SloMo
+  m_TagString: SloMo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7596b4119198e6b4c807b39b1df0a6a5, type: 2}
+  - {fileID: 2100000, guid: 05be95640ca9f9047bbac0c61af95168, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -96,7 +96,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-6083663876335167546
+--- !u!114 &-3047407088706654928
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
