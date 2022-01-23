@@ -23,7 +23,7 @@ public class ObjectCollision : MonoBehaviour
     private void Start()
     {
         slomoon = false;
-        slomoTimer = 7;
+        slomoTimer = 4;
         pCon = GetComponent<PlayerController>();
         otherPCon = otherPlayer.GetComponent<PlayerController>();
     }
@@ -57,7 +57,7 @@ public class ObjectCollision : MonoBehaviour
         }
         else
         {
-            powerUpTimer = 7f;
+            powerUpTimer = 4f;
         }
 
         if (slomoon)
@@ -113,7 +113,7 @@ public class ObjectCollision : MonoBehaviour
         if (slomoTimer <= 0)
         {
             pSpawner.slomo = false;
-            slomoTimer = 7;
+            slomoTimer = 4;
             slomoon = false;
         }
     }
